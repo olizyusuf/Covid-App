@@ -1,16 +1,16 @@
-# covid_app
+# Covid App
 
-A new Flutter project.
+Show information new case Covid-19 in Indonesia.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This Project show information new case covid-19 in Indonesia.
+1. provider for state management.
+2. Covid-19.go.id for API.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshot App
+![image](https://user-images.githubusercontent.com/70385592/178132256-c277b850-2db7-43fd-87c1-9dab5e7844d9.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![image](https://user-images.githubusercontent.com/70385592/178132272-7fabf19a-86d7-4add-adde-20ee8d70e5ca.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Help me if you found something or need add new features.
