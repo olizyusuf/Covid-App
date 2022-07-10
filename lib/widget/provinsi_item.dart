@@ -3,8 +3,8 @@ import 'package:covid_app/ui/detail_provinsi.dart';
 import 'package:flutter/material.dart';
 
 class ProvinsiItem extends StatelessWidget {
-  DataCovid dataProvinsi;
-  ProvinsiItem({Key? key, required this.dataProvinsi}) : super(key: key);
+  final DataCovid dataProvinsi;
+  const ProvinsiItem({Key? key, required this.dataProvinsi}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,10 @@
 import 'package:covid_app/models/data_covid.dart';
+import 'package:covid_app/widget/informasi.dart';
 import 'package:flutter/material.dart';
 
 class DetailProvinsi extends StatelessWidget {
-  DataCovid provinsi;
-  DetailProvinsi({Key? key, required this.provinsi}) : super(key: key);
+  final DataCovid provinsi;
+  const DetailProvinsi({Key? key, required this.provinsi}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,126 +29,50 @@ class DetailProvinsi extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: Card(
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(vertical: 20),
-                      child: Column(
-                        children: [
-                          Text(
-                            provinsi.jumlah_kasus.toString(),
-                            style: const TextStyle(
-                              fontSize: 27,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.red,
-                            ),
-                          ),
-                          const Text(
-                            'Jumlah Kasus',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.red,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Card(
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(vertical: 20),
-                      child: Column(
-                        children: [
-                          Text(
-                            provinsi.jumlah_sembuh.toString(),
-                            style: const TextStyle(
-                              fontSize: 27,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green,
-                            ),
-                          ),
-                          const Text(
-                            'Jumlah Sembuh',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            Informasi(
+              data1: provinsi.jumlah_kasus.toString(),
+              title1: 'Jumlah Kasus',
+              color1: Colors.red,
+              data2: provinsi.jumlah_sembuh.toString(),
+              title2: 'Jumlah Sembuh',
+              color2: Colors.green,
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: Card(
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(vertical: 20),
-                      child: Column(
-                        children: [
-                          Text(
-                            provinsi.jumlah_dirawat.toString(),
-                            style: const TextStyle(
-                              fontSize: 27,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          const Text(
-                            'Jumlah Dirawat',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Card(
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(vertical: 20),
-                      child: Column(
-                        children: [
-                          Text(
-                            provinsi.jumlah_meninggal.toString(),
-                            style: const TextStyle(
-                              fontSize: 27,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                          const Text(
-                            'Jumlah Meninggal',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            Informasi(
+              data1: provinsi.jumlah_dirawat.toString(),
+              title1: 'Jumlah Dirawat',
+              color1: Colors.blue,
+              data2: provinsi.jumlah_meninggal.toString(),
+              title2: 'Jumlah Meninggal',
+              color2: Colors.black,
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Text(
+              "Kelompok Umur",
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Column(
+              children: provinsi.kelompok_umur!.map((data) {
+                return Card(
+                  child: ListTile(
+                    title: Text(
+                      '${data['key']} Tahun',
+                    ),
+                    trailing: Text(
+                      data['doc_count'].toString(),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                );
+              }).toList(),
+            )
           ],
         ),
       ),
