@@ -1,4 +1,5 @@
 import 'package:covid_app/provider/data.dart';
+import 'package:covid_app/ui/about_screen.dart';
 import 'package:covid_app/widget/provinsi_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +12,30 @@ class ProvinsiScreen extends StatelessWidget {
     Data dataCovid = Provider.of<Data>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Covid App'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AboutScreen(),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.info,
+              color: Colors.black,
+            ),
+          )
+        ],
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        title: const Text(
+          'Covid App',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
       ),
       body: FutureBuilder(
         future: dataCovid.fetchData(),

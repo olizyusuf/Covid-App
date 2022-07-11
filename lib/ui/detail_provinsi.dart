@@ -11,8 +11,13 @@ class DetailProvinsi extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
-        centerTitle: true,
-        title: Text(provinsi.key!),
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        title: Text(
+          provinsi.key!,
+          style: TextStyle(color: Colors.black, fontSize: 14),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
